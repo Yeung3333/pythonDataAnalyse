@@ -7,6 +7,7 @@ current = np.random.normal(loc=5, scale=0.5/3, size=200) # 正态分布函数nor
 
 # 将数据合并为数据框
 data = pd.DataFrame({'voltage': voltage, 'current': current})
+# 看看它是什么成分
 print(type(data))
 # 将数据保存为CSV文件
 data.to_csv('grid_data_TensorFlow.csv', index=False)
