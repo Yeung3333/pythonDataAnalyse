@@ -1,0 +1,86 @@
+<html>
+   <head>
+      <title>Tensor Flow</title>
+      <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>   
+   </head>
+
+   <body>
+      <div id="acc-cont"></div>
+      <div style="text-align: center;margin-bottom: 20px;">
+         <span>样本数据分布</span>
+      </div>
+      <div id="loss-cont"></div>
+      <form name='iForm' onSubmit='formpredict(this.val.value,document.getElementById("res")); return false;')>
+         输入数字: <input name='val'><input type=submit>
+         <div>
+            结果: <span id="res"></span>
+         </div>
+      </form>
+   </body>
+   <script>
+      const nr_epochs = 100  // 训练轮数
+      const trainLogs = [];
+      const lossContainer = document.getElementById("loss-cont");
+      const accContainer = document.getElementById("acc-cont");
+      const createBias = () => 3 * (Math.random() < 0.5 ? -1 : 1)  // 创造正负3的误差
+      let model, result
+
+      const xData = [60, 70, 90, 130, 150]
+      const yData = [200, 300, 400, 600, 800]
+      const seriesData = xData.map((x, index) => ({
+         x,
+         y: yData[index]
+      }))
+      const data = { values: [seriesData] }
+      const surface = document.getElementById("acc-cont")
+      tfvis.render.scatterplot(surface, data);
+
+      function initTF() {
+      // 1. 建立数据集
+      
+      const xs = tf.tensor2d(xData, [xData.length,1])
+      const ys = tf.tensor2d(yData, [yData.length,1])
+         
+      // 2. 定义模型
+      model = tf.sequential({
+         layers: [
+            tf.layers.dense({inputShape: [1], units: 1}),
+            tf.layers.batchNormalization()
+         ]
+      })
+      model.compile({
+         loss: 'meanSquaredError', 
+         optimizer: 'sgd'
+      })
+
+      // 3.训练模型
+      result = model.fit(
+            xs,
+            ys,
+            {
+               epochs: nr_epochs,
+               callbacks: {
+                  onEpochEnd: async (epoch, logs) => {
+                     console.log(logs, "???")
+                     trainLogs.push({
+                        mse: Math.sqrt(logs.loss),
+                     });
+                     tfvis.show.history(lossContainer, trainLogs, ["mse"]);
+                  }
+               } 
+            }  
+         )
+      }
+      
+      // 4. 预测数据
+      function formpredict(v,r) {
+         const result = model.predict(tf.tensor2d([+v],[1,1]))
+         const value = result.dataSync()[0].toFixed(2)
+
+         document.getElementById('res').innerHTML = `${value} 万`
+      }
+
+      initTF()
+   </script>   
+</html>
