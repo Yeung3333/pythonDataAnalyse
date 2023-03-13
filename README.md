@@ -7,7 +7,7 @@
 ### 1.1.1 样例（html）
 这部分首先是一个[1.TensorFlow_example.html](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/Tensorflow%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/1.TensorFlow_example.html "1.TensorFlow_example.html")样例，这个是我以前学习html的时候，在TensorFlow的官网中无意间找到的案例，当时觉得对自己有很大的启发，就把这个样例给保存下来了，看不懂语法没关系，重要是看看它的运行结果：
 
-![TensorFlow预测结果.jpg](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/source/TensorFlow%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C.jpg "hover：TensorFlow预测结果.jpg" #pic_center)
+![TensorFlow预测结果.jpg](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/source/TensorFlow%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C.jpg)#pic_center
 
 ### 1.1.2 TensorFlow线性回归预测模型
 1.首先我们导入必要的模块：
@@ -24,7 +24,7 @@ import matplotlib.pyplot as plt
 
 2.然后开始读取数据（在这步之前，请先记得生成对应的数据文件，用[生成历史电网数据.py](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/Tensorflow%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/%E7%94%9F%E6%88%90%E5%8E%86%E5%8F%B2%E7%94%B5%E7%BD%91%E6%95%B0%E6%8D%AE.py "生成历史数据.py")进行生成对应的[电网数据.csv](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/Tensorflow%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/grid_data_TensorFlow.csv)，生产的结果如下图所示）：
 
-![TensorFlow训练的20行数据.jpg](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/source/TensorFlow%E8%AE%AD%E7%BB%83%E7%9A%8420%E8%A1%8C%E6%95%B0%E6%8D%AE.jpg #pic_center)
+![TensorFlow训练的20行数据.jpg](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/source/TensorFlow%E8%AE%AD%E7%BB%83%E7%9A%8420%E8%A1%8C%E6%95%B0%E6%8D%AE.jpg)
 ~~~
 # 利用pandas库读取csv数据
 train = pd.read_csv("grid_data_TensorFlow.csv")
@@ -83,7 +83,7 @@ with tf.Session() as sess:
 ~~~
 神经网络训练过程如图所示：
 
-![TensorFlow训练过程截图.jpg](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/source/TensorFlow%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E6%88%AA%E5%9B%BE.jpg #pic_center)
+![TensorFlow训练过程截图.jpg](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/source/TensorFlow%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E6%88%AA%E5%9B%BE.jpg)
 
 6.结果展示（matplotlib中的函数）：
 ~~~
@@ -95,7 +95,7 @@ with tf.Session() as sess:
 ~~~
 最终结果如下图所示（参数的设置请看***定义参数***）：
 
-![训练结果.png](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/source/1-1%E3%80%81200-0.1-180.png #pic_center)
+![训练结果.png](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/source/1-1%E3%80%81200-0.1-180.png)
 
 （补充）7.生成历史数据：
 ~~~
