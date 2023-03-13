@@ -7,7 +7,7 @@
 ### 1.1.1 样例（html）
 这部分首先是一个[1.TensorFlow_example.html](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/Tensorflow%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/1.TensorFlow_example.html "1.TensorFlow_example.html")样例，这个是我以前学习html的时候，在TensorFlow的官网中无意间找到的案例，当时觉得对自己有很大的启发，就把这个样例给保存下来了，看不懂语法没关系，重要是看看它的运行结果：
 
-![TensorFlow预测结果.jpg](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/source/TensorFlow%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C.jpg)#pic_center
+![TensorFlow预测结果.jpg](https://github.com/LoveQinxia/pythonDataAnalyse/blob/main/source/TensorFlow%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C.jpg)
 
 ### 1.1.2 TensorFlow线性回归预测模型
 1.首先我们导入必要的模块：
